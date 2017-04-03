@@ -1,0 +1,59 @@
+Difference Between Abstract Class vs Interface in c#
+
+Introduction:
+
+In this article I am going to explain the difference between Abstract Class vs Interface. And when we should use of abstract class and when Interface.
+
+Abstract class and Interface looks similar when abstract class does not have implementation. But there are many differences than similarities between them. So lets see what are that main differences. 
+Abstract Class:
+
+An abstract class is a special kind of class that cannot be instantiated. Now one question arise in our mind if we can not instantiated any class than what is it's need? Why we should create that class. But when we have a requirement of some common functionalities or methods than we should use of abstract classes. So we can understand that An abstract class can have shared state or functionality. So the good abstract class can reduce the amount of code that has to be rewritten because it's functionality or state can be shared.
+Interface:
+
+So first of all I must say that Interface is not a Class. It is an entity that is defined by the word Interface. An interface is only a promise or contract  to provide the state or functionality. In other words Interface has no implementation, it has only the signature or just the definition of the methods without any body. And the main difference is that class can implement more than one interface but it can't be achieve with abstract class because C# does not support multiple inheritance.
+
+Use of abstract class
+
+When we have some common functionality which we want to use N number of times at different place than we should go for it. It always can be use as base class. Lets understand with the help of Example:
+
+   public abstract class Common
+   {
+        public void Move()
+        {
+            Console.Write("Human Can move.");
+        }
+    }
+
+    public class Male : Common
+    {
+        //additional functionalities
+    }
+
+    public class Female : Common
+    {
+        //additional functionalities
+    }
+
+In the above example we can see that Common is a base abstract class and it has Move() method which is going to use in multiple place so in this type of scenario we should go for abstract class. So make once and reuse N number of times.
+
+Use of Interface
+If your child classes should all implement a certain group of methods/functionalities but each of the child classes is free to provide its own implementation then use interfaces.
+
+    public interface IParent
+    {
+        void GoSchool();
+    }
+
+    public class Children : IParent
+    {
+        public void GoSchool()
+        {
+            //What they do in school Parents don't know exactly.
+        }
+
+    }
+
+
+Here is real life example every child's parents send their children to school for study but all children do whatever they want but by force or by contract in terms of interface they have to go for school.
+
+So this is the real life example of Interface and abstract class.
